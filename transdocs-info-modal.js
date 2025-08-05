@@ -105,22 +105,20 @@ function createPopup() {
     </div>
   `;
 
+  const html = document.querySelector('html');
+
   // 添加到页面
   overlay.appendChild(popup);
-  document.body.appendChild(overlay);
+  html.appendChild(overlay);
 
   // 绑定关闭事件
   const closeBtn = popup.querySelector('.transdocs-modal-close');
-  const confirmBtn = popup.querySelector('.transdocs-modal-confirm');
-  const cancelBtn = popup.querySelector('.transdocs-modal-cancel');
 
   const closePopup = () => {
-    document.body.removeChild(overlay);
+    html.removeChild(overlay);
   };
 
   closeBtn.addEventListener('click', closePopup);
-  confirmBtn.addEventListener('click', closePopup);
-  cancelBtn.addEventListener('click', closePopup);
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
       closePopup();
