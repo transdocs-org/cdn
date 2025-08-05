@@ -146,8 +146,10 @@ function markPopupAsShown() {
 
 // 页面加载完成后显示弹窗
 document.addEventListener('DOMContentLoaded', function () {
-  if (shouldShowPopup()) {
-    showPopup();
-    markPopupAsShown();
-  }
+  setTimeout(() => {
+    if (shouldShowPopup()) {
+      showPopup();
+      markPopupAsShown();
+    }
+  }, 5000);
 });
