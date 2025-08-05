@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>弹窗测试页面</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #666;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px 5px;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>弹窗功能测试页面</h1>
+    <p>这是一个用于测试弹窗功能的页面。页面加载完成后应该会自动显示弹窗。</p>
+    <p>刷新页面后弹窗不会再次显示，因为已在 sessionStorage 中标记。</p>
+    <p>关闭浏览器标签页或窗口后，标记会被清除，下次访问时会重新显示弹窗。</p>
+
+    <button class="btn" onclick="resetPopupFlag()">重置弹窗标记</button>
+  </div>
+
+  <script src="popup.js"></script>
+  <script>
+    // 重置弹窗标记的函数
+    function resetPopupFlag() {
+      sessionStorage.removeItem('__transdocs-popup-shown__');
+      alert('弹窗标记已重置，刷新页面后会再次显示弹窗');
+    }
+  </script>
+</body>
+
+</html>
